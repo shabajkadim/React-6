@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './../Style/login.css'
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const[loginData,setLoginData]=useState({email:"",password:""})
@@ -12,14 +13,21 @@ const Login = () => {
     setLoginData({...loginData,[e.target.name]:e.target.value})
   }
 
-  function handleSubmit(e){
+ async function handleSubmit(e){
     e.preventDefault()
     if(loginData.email && loginData.password){
-      alert("login SuccessFull")
-      setLoginData({email:"",password:""})
-      router('/')
+      try{
+        const response={data:{success:true,massage:"Login successful"}}
+        if(response.data.success===true){
+          toast.success(response.data.massage)
+          setLoginData({email:"",password:""})
+          router('/')
+        }
+      }catch(error){
+        toast.error(error)
+      }
     }else{
-      alert("all feild are required")
+      toast.error("all feild are required")
     }
   }
 

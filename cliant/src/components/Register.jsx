@@ -1,32 +1,40 @@
 import React, { useState } from 'react'
 import './../Style/register.css'
 import { Router, useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const Register = () => {
   const[userData,setUserData]=useState({name:"",email:"",password:"",confirmPassword:""})
   const router=useNavigate()
+  console.log(userData);
 
-  console.log(userData,"userData");
   function handleChange(e){
-    console.log(e.target.name,e.target.value);
     setUserData({...userData,[e.target.name]:e.target.value})
   }
 
-  function handleSubmit(e){
-    e.preventDefault()
+
+ async function handleSubmit(e){
+  e.preventDefault()
     if(userData.name && userData.email && userData.password && userData.confirmPassword){
       if(userData.password === userData.confirmPassword){
-        alert("register Successful")
-      setUserData({name:"",email:"",password:"",confirmPassword:""})
-      router('/login')
+        try{
+          const response={data:{success:true,massage:"Register Successful"}}
+          if(response.data.success=== true){
+            toast.success(response.data.massage)
+            setUserData({name:"",email:"",password:"",confirmPassword:""})
+            router('/login')
+          }
+        }catch(error){
+          alert("error")
+        }
       }else{
-        alert("check Password and confirmPassword")
+        toast.error("passworrd and confirmpassword not match")
       }
-      
     }else{
-      alert("all Filds are required")
+      alert("All fields are required")
     }
   }
+ 
   return (
     <div className='maindiv'>
       <h1>Register-page</h1>
