@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import {Toaster} from 'react-hot-toast'
 import ProviderCounterContext from './components/context/ProviderCounterContext';
+import AuthContextComponents from './components/context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+  <AuthContextComponents>
   <ProviderCounterContext>
   <Toaster
   position="top-center"
@@ -39,6 +41,7 @@ root.render(
     <App />
   
   </ProviderCounterContext>
+  </AuthContextComponents>
   </BrowserRouter>
 );
 
