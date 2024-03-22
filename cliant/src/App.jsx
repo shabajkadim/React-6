@@ -13,6 +13,13 @@ import FeckAllProduct from './components/10-03-24/fakeAllProduct';
 import ProviderCounterContext from './components/context/ProviderCounterContext';
 import TodoApp from './components/15-03-24/TodoApp';
 import TodoList from './components/15-03-24/todolista';
+import FackSingleProduct from './components/16-03-24/FackSingleProduct';
+import PageNot from './components/PageNot';
+import Navbar from './components/globlecontext/navbar';
+import Footer from './components/globlecontext/Footer';
+import Theme from './components/Theme';
+import CounterRedux from './components/Redux20-03/CounterRedux';
+import UseMemo from './components/22-03-24/UseMemo';
 
 function App() {
   const[students,setStudents]=useState(["a","b","c","d","e"])
@@ -25,7 +32,9 @@ function App() {
     {name:"jacket" , image:"https://images-cdn.ubuy.co.in/653823c2ba78ad77ac2c88d0-tacvasen-men-39-s-cotton-jackets-winter.jpg",Price:"1000",quantity:"7"}])
   return (
     <div className='App'>
-     <Routes>
+    <Navbar />
+     <Routes>  
+      <Route path='*' element={<PageNot/>} />
       <Route path='/' element={<Home/>}/>
       <Route path='register' element={<Register/>} />
       <Route path='login' element={<Login/>} />
@@ -37,7 +46,12 @@ function App() {
       <Route path='counter-context' element={<ProviderCounterContext/>} />
       <Route path='todo-app' element={<TodoApp/>} />
       <Route path='todolist' element={<TodoList/>} />
+      <Route path='fack-single-product/:id' element={<FackSingleProduct/>} />
+      <Route path='/theme' element={<Theme/>} />
+      <Route path='counter-redux' element={<CounterRedux/>} />
+      <Route path='/use-memo' element={<UseMemo/>} />
      </Routes>
+     {/* <Footer/> */}
     </div>
   );
 }
