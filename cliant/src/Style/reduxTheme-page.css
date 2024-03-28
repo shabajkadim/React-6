@@ -1,0 +1,23 @@
+.reduxTheme-page{
+    height: 400px;
+}
+.dark-botn{
+    margin-right:10px;
+    width:80px ;
+    height:80px;
+}
+.light-bton{
+    margin-right:10px;
+    width:80px ;
+    height:80px;
+    transform: 5sec;
+}
+.light-bton::before::after{
+    background-color:rgb(255,255,255);
+    color:rgb(0,29,53);
+    background-color:rgb(0,29,53);
+        color:rgb(255,255,255);
+        transform-origin: 10sec;   
+}
+
+    

@@ -8,6 +8,7 @@ export const ThemeContext=createContext()
             background:"rgb(0,29,53)",
             color:"rgb(194,231,255)",
             height:"400px",
+            
         },
         light:{
             color:"rgb(0,29,53)",

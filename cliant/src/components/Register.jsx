@@ -22,6 +22,7 @@ const Register = () => {
           if(response.data.success=== true){
             toast.success(response.data.massage)
             setUserData({name:"",email:"",password:"",confirmPassword:""})
+            localStorage.setItem("data",JSON.stringify(response.data))
             router('/login')
           }
         }catch(error){

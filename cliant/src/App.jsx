@@ -20,6 +20,9 @@ import Footer from './components/globlecontext/Footer';
 import Theme from './components/Theme';
 import CounterRedux from './components/Redux20-03/CounterRedux';
 import UseMemo from './components/22-03-24/UseMemo';
+import UseCallBack from './components/23-03-24/UseCallBack';
+import ThemeRedux from './components/Redux20-03/ThemeRedux';
+
 
 function App() {
   const[students,setStudents]=useState(["a","b","c","d","e"])
@@ -50,6 +53,10 @@ function App() {
       <Route path='/theme' element={<Theme/>} />
       <Route path='counter-redux' element={<CounterRedux/>} />
       <Route path='/use-memo' element={<UseMemo/>} />
+      <Route path='/use-callback' element={<UseCallBack/>} />
+      <Route path='theme-redux' element={<ThemeRedux/>} />
+      
+
      </Routes>
      {/* <Footer/> */}
     </div>

@@ -3,7 +3,14 @@ import { useNavigate } from 'react-router-dom'
 
 const PageNot = () => {
 
-    // const router=useNavigate()
+    const router=useNavigate()
+
+
+    useEffect(()=>{
+      setTimeout(()=>{
+        router('/')
+      },3000)
+    },[])
 
     
 
