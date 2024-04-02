@@ -53,10 +53,11 @@ const MovieSearch = () => {
             {error && <p>{error}</p>}
             {loading && <p>Loading...</p>}
             {searchResults.length > 0 && (
-                <ul>
+                <ul style={{display:"flex"}}>
                     {searchResults.map((movie) => (
                         <li key={movie.id}>
-                            <img src={movie.i.imageUrl} alt={movie.l} />
+
+                            <p className='image-container'> <img src={movie.i.imageUrl} alt={movie.l} /> </p>
                             <p>Title: {movie.l}</p>
                             <p>Year: {movie.y}</p>
                             <p>Actors: {movie.s}</p>
