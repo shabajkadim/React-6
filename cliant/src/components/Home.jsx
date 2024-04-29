@@ -23,6 +23,7 @@ const Home = () => {
       <button onClick={()=>LOGOUT()}>LOGOUT</button>
       
       
+      
     </div>
   )
 }

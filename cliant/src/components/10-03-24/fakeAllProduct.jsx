@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const FeckAllProduct = () => {
 
   const[productData,setProductData]=useState([])//to use get all products 
- 
+  console.log(productData,"idddd");
   const router=useNavigate()
 
   const[search,setSearch]=useState("")
