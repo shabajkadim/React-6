@@ -1,3 +1,4 @@
+import axios from "axios"
 import { createContext, useEffect, useReducer } from "react"
 
 
@@ -29,9 +30,10 @@ const AuthContextComponents=({children})=>{
 
     async function getUserData(){
         try{
-        const response={data:{success:true, userData:{name:"Shabaj",email:"shabaj@123"}}}
+            const response=await axios.get("http://localhost:8000/api/v1/auth/validuser",{withCredentials:true})
+        // const response={data:{success:true, userData:{name:"Shabaj",email:"shabaj@123"}}}
         if(response.data.success){
-            LOGIN(response.data.userData)
+            LOGIN(response.data.user)
         }
         }catch(error){
             console.log(error);
@@ -39,10 +41,7 @@ const AuthContextComponents=({children})=>{
     }
 
     useEffect(()=>{
-       const token= JSON.parse(localStorage.getItem("token"))
-        if(token){
-            getUserData()
-        }
+            getUserData()  
     },[])
     
     return(

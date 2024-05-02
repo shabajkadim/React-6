@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './../Style/register.css'
 import { Router, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import axios from 'axios'
 
 const Register = () => {
   const[userData,setUserData]=useState({name:"",email:"",password:"",confirmPassword:""})
@@ -18,9 +19,10 @@ const Register = () => {
     if(userData.name && userData.email && userData.password && userData.confirmPassword){
       if(userData.password === userData.confirmPassword){
         try{
-          const response={data:{success:true,massage:"Register Successful"}}
+          const response=await axios.post("http://localhost:8000/api/v1/auth/register",{userData})
+          // const response={data:{success:true,massage:"Register Successful"}}
           if(response.data.success=== true){
-            toast.success(response.data.massage)
+            toast.success(response.data.message)
             setUserData({name:"",email:"",password:"",confirmPassword:""})
             localStorage.setItem("data",JSON.stringify(response.data))
             router('/login')

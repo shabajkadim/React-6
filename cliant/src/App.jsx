@@ -36,12 +36,12 @@ function App() {
     {name:"jeans" , image:"https://3brothersmenshub.com/wp-content/uploads/2023/02/jeans-500x500-1.jpg",Price:"500",quantity:"8"},
     {name:"jacket" , image:"https://images-cdn.ubuy.co.in/653823c2ba78ad77ac2c88d0-tacvasen-men-39-s-cotton-jackets-winter.jpg",Price:"1000",quantity:"7"}])
   return (
-    <div className='App'>
+    <div >
     <Navbar />
      <Routes>  
       <Route path='*' element={<PageNot/>} />
       <Route path='/' element={<Home/>}/>
-      <Route path='register' element={<Register/>} />
+      <Route path='register-page' element={<Register/>} />
       <Route path='login' element={<Login/>} />
       <Route path='counter' element={<Counter/>} />
       <Route path='/use-reducer' element={<UseReducer/>} />

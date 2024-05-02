@@ -3,11 +3,12 @@ import './../Style/login.css'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from './context/AuthContext';
+import axios from 'axios';
 
 const Login = () => {
 
  const{LOGIN}=useContext(AuthContext)
- console.log(LOGIN);
+//  console.log(LOGIN);
 
   const[loginData,setLoginData]=useState({email:"",password:""})
   // console.log(loginData);
@@ -22,11 +23,12 @@ const Login = () => {
     e.preventDefault()
     if(loginData.email && loginData.password){
       try{
-        const response={data:{success:true,massage:"Login successful", token:"skhgfkahsdfgkhrfghrf", userData:{name:"Shabaj",email:"shabaj@123"}}}
-        if(response.data.success===true){
-          localStorage.setItem("token",JSON.stringify(response.data.token))
+        const response=await axios.post("http://localhost:8000/api/v1/auth/login",{loginData},{withCredentials : true})
+        // const response={data:{success:true,massage:"Login successful", token:"skhgfkahsdfgkhrfghrf", userData:{name:"Shabaj",email:"shabaj@123"}}}
+        if(response.data.success === true){
+          // localStorage.setItem("token",JSON.stringify(response.data.token))
           LOGIN(response.data.userData)
-          toast.success(response.data.massage)
+          toast.success(response.data.message)
           setLoginData({email:"",password:""})
           router('/')
         }

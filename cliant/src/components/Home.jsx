@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { MyConterContext } from './context/ProviderCounterContext'
 import { AuthContext } from './context/AuthContext'
-import { ThemeContext } from './context/ThemeContext'
+// import { ThemeContext } from './context/ThemeContext'
 
 
 const Home = () => {
