@@ -23,8 +23,8 @@ const Login = () => {
     e.preventDefault()
     if(loginData.email && loginData.password){
       try{
-        const response=await axios.post("http://localhost:8000/api/v1/auth/login",{loginData},{withCredentials : true})
-        // const response={data:{success:true,massage:"Login successful", token:"skhgfkahsdfgkhrfghrf", userData:{name:"Shabaj",email:"shabaj@123"}}}
+        // const response=await axios.post("http://localhost:8000/api/v1/auth/login",{loginData},{withCredentials : true})
+        const response={data:{success:true,message:"Login successful", token:"skhgfkahsdfgkhrfghrf", userData:{name:"Shabaj",email:"shabaj@123"}}}
         if(response.data.success === true){
           // localStorage.setItem("token",JSON.stringify(response.data.token))
           LOGIN(response.data.userData)

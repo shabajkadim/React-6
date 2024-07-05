@@ -23,6 +23,7 @@ import UseMemo from './components/22-03-24/UseMemo';
 import UseCallBack from './components/23-03-24/UseCallBack';
 import ThemeRedux from './components/Redux20-03/ThemeRedux';
 import MovieInfo from './components/29-03-24/MovieInfo';
+import NewTodo from './components/NewTodo';
 
 
 
@@ -58,6 +59,7 @@ function App() {
       <Route path='/use-callback' element={<UseCallBack/>} />
       <Route path='theme-redux' element={<ThemeRedux/>} />
       <Route path='movie-info' element={<MovieInfo/>} />
+      <Route path='new-todo' element={<NewTodo/>} />
     
       
 

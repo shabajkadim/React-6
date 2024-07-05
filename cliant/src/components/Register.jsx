@@ -19,8 +19,8 @@ const Register = () => {
     if(userData.name && userData.email && userData.password && userData.confirmPassword){
       if(userData.password === userData.confirmPassword){
         try{
-          const response=await axios.post("http://localhost:8000/api/v1/auth/register",{userData})
-          // const response={data:{success:true,massage:"Register Successful"}}
+          // const response=await axios.post("http://localhost:8000/api/v1/auth/register",{userData})
+          const response={data:{success:true,message:"Register Successful"}}
           if(response.data.success=== true){
             toast.success(response.data.message)
             setUserData({name:"",email:"",password:"",confirmPassword:""})
